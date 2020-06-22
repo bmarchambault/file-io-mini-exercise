@@ -6,26 +6,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FileIoMiniExercise {
+
     public static void main(String[] args) {
 
         // TODO: define the path to the instructor-names.txt file
-Path textFile = Paths.get("instructor-names.txt");
+Path textFile = Paths.get("src", "instructor-names.txt");
 
         // TODO: uncomment the following variable declarations
-//        List<Instructor> instructors;
-//        List<String> names = new ArrayList<>();
+        List<Instructor> instructors;
+        List<String> names = new ArrayList<>();
 
         // TODO: read the contents of the instructor-names.txt file and store the list of strings into the 'names' variable
-
+        try {
+            names = Files.readAllLines(textFile);
+//            System.out.println(textFile);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
 
         // TODO: assign the 'instructors' variable a list of Instructor objects with names matching the list of strings/names from the text file (the Instructor class has a helpful method for this)
+instructors = Instructor.nameStringsToInstructors(names);
 
 
         // TODO: greet all instructors by their names
-
+greetInstructors(instructors);
 
         // TODO: change "Fred" to "David" in the list of Instructor objects
-
+changeFredToDavid(instructors);
 
         // TODO: update the list of strings/names ('names' variable) to the latest names from the Instructor objects (the Instructor class has a helpful method for this)
 
@@ -61,5 +68,6 @@ Path textFile = Paths.get("instructor-names.txt");
             }
         }
     }
+
 
 }
