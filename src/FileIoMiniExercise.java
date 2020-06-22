@@ -9,7 +9,7 @@ public class FileIoMiniExercise {
     public static void main(String[] args) {
 
         // TODO: define the path to the instructor-names.txt file
-
+Path textFile = Paths.get("instructor-names.txt");
 
         // TODO: uncomment the following variable declarations
 //        List<Instructor> instructors;
