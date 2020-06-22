@@ -35,15 +35,20 @@ greetInstructors(instructors);
 changeFredToDavid(instructors);
 
         // TODO: update the list of strings/names ('names' variable) to the latest names from the Instructor objects (the Instructor class has a helpful method for this)
-
+names = Instructor.instructorsToNameStrings(instructors);
 
         // TODO: overwrite the instructors-names.txt file with the latest list of names
+        try{
+            Files.write(textFile, names);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
 
         // TODO: uncomment the following line
-//        System.out.println("============== after name change...");
+        System.out.println("============== after name change...");
 
         // TODO: greet instructors again (no need to reread the text file again; just use the existing list of instructors in memory)
-
+greetInstructors(instructors);
 
     }
 
